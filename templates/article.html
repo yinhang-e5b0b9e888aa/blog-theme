@@ -35,7 +35,7 @@
     {% if article.toc %}
     <div class="span2 table-of-content">
         <nav>
-        <h4>Contents</h4>
+        <h4>目录</h4>
         {{ article.toc }}
         </nav>
     </div>
@@ -86,18 +86,18 @@
         <div class="span2" style="float:right;font-size:0.9em;">
             {% include '_includes/post_stats.html' %}
             {% if article.date %}
-            <h4>Published</h4>
+            <h4>发布于</h4>
             {% set day = article.date.strftime('%d')|int %}
             <time itemprop="dateCreated" datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%b') }} {{ day }} {{- article.date.strftime(', %Y') }}</time>
             {% endif %}
             {% include '_includes/last_updated.html' %}
             {% include '_includes/series.html' %}
             {% if article.category|trim|count > 0 %}
-            <h4>Category</h4>
+            <h4>分类</h4>
             <a class="category-link" href="{{ SITEURL }}/categories.html#{{ category.slug }}-ref">{{ article.category }}</a>
             {% endif %}
             {% if article.tags and article.tags[0]|trim|count > 0 %}
-            <h4>Tags</h4>
+            <h4>标签</h4>
             <ul class="list-of-tags tags-in-article">
                 {% for tag in article.tags|sort %}
                 <li><a href="{{ SITEURL }}/{{ TAGS_URL|default('tags') }}#{{ tag.slug }}-ref">{{ tag }}
